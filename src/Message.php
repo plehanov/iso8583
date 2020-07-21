@@ -54,7 +54,8 @@ class Message
 		
 		// Populating bitmap
 		$bitmap = "";
-		$bitmapLength = 64 * (floor(max(array_keys($this->fields)) / 64) + 1);
+		// $bitmapLength = 64 * (floor(max(array_keys($this->fields)) / 64) + 1);
+		$bitmapLength = max(array_keys($fields))==64 ? 64 : (64 * (floor(max(array_keys($fields)) / 64) + 1));
 
 		$tmpBitmap = "";
 		for($i=1; $i <= $bitmapLength; $i++) {
